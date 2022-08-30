@@ -6,6 +6,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1 className='bg-green text-tahiti'>
+            color verdeeeeeeeeeeeeeeeeeeeeee
+        </h1>
+        <h1 className='bg-black text-tahiti'>
+            color rareeeeeeeeeeeeeeeee
+        </h1>
+        <h1 className='bg-white text-tahiti m-32'>
+            color rareeeeeeeeeeeeeeeee
+        </h1>
+    
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
