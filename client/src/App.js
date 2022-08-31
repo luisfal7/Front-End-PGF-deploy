@@ -1,34 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import SearchBar from './components/SearchBar.jsx';
 
 function App() {
+  //test commit remote
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className='bg-green text-tahiti'>
-            color verdeeeeeeeeeeeeeeeeeeeeee
-        </h1>
-        <h1 className='bg-black text-tahiti'>
-            color rareeeeeeeeeeeeeeeee
-        </h1>
-        <h1 className='bg-white text-tahiti m-32'>
-            color rareeeeeeeeeeeeeeeee
-        </h1>
-    
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchBar />
     </div>
+    
   );
 }
 
