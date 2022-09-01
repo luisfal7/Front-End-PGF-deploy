@@ -14,7 +14,7 @@ export const getShoe = (id) => (dispatch)=>{
                     .then(res => dispatch({type: 'GET_SHOE', payload: res.data}))
 }
 
-export const getByName = (name) => {
+export const getByName = (name) => (dispatch)=>{
     return axios(`http://localhost:3001/shoes?name=${name}`)
                     .then(res => dispatch({type: 'GET_BY_NAME', payload: res.data})) 
 }
