@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     button {
         @apply text-black border bg-[#00ff01] border-[#00ff01]
