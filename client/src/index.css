@@ -5,6 +5,7 @@
 =======
 @tailwind utilities;
 
+<<<<<<< HEAD
 
 @layer base {
   button {
@@ -12,3 +13,11 @@
       hover:bg-transparent hover:text-[#00ff01] rounded-md
   }
 }
+=======
+@layer base {
+    button {
+        @apply text-black border bg-[#00ff01] border-[#00ff01]
+        hover:bg-transparent hover:text-[#00ff01] rounded-md
+    }
+}
+>>>>>>> MKamui
