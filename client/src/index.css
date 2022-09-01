@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
 @tailwind utilities;
+=======
+@tailwind utilities;
+
+
+@layer base {
+  button {
+      @apply text-black border bg-[#00ff01] border-[#00ff01]
+      hover:bg-transparent hover:text-[#00ff01] rounded-md
+  }
+}
