@@ -11,7 +11,7 @@ const CardDetail = () => {
 
   useEffect(() => {
     const getShoe = async () => {
-      let { data: shoe } = await axios.get(`http://localhost:3001/shoes/${params.id}`)
+      let { data: shoe } = await axios.get(`http://localhost:3001/shoes/${params._id}`)
       setShoe(shoe)
     }
     getShoe()
