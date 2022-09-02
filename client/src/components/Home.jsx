@@ -1,7 +1,13 @@
+import Catalog from "./Catalog";
+import NavBar from "./NavBar";
+
 function Home() {
-    return ( <div>
-        home
-    </div> );
+    return ( 
+    <div>
+        <NavBar/>
+        <Catalog/>
+    </div> 
+    );
 }
 
 

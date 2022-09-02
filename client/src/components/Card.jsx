@@ -5,7 +5,7 @@ const Card = ({shoe}) => {
   return (
     <div className="bg-black">
       <div className="max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="">
           <Link to={`/products/${shoe._id}`}>
           <div className="group relative cursor-pointer">
             <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-xl group-hover:opacity-60">
