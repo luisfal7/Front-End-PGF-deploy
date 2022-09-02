@@ -41,7 +41,7 @@ function Catalog(){
 
   return (
     <div className="bg-black">
-      <div className="text-[#00ff01] text-6xl font-bold text-center py-2">Products</div>
+      <div className="text-[#00ff01] text-6xl font-bold text-center pb-2 pt-16">Products</div>
       <div className='flex justify-around'>
         <button onClick={prevPage}>
           Previous

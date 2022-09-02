@@ -25,14 +25,17 @@ const Carousel = () => {
   }
   
   return (
-    <div className='px-4 py-16 relative flex justify-center items-center bg-black'>
-      <BsArrowLeftSquareFill onClick={prevSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer left-8'/>
-      <BsArrowRightSquareFill onClick={nextSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer right-8'/>
+    <div>
+    <h1 className='text-[#00ff01] flex justify-center items-center bg-black py-4 font-bold text-xl'>¡New Arrivals!</h1>
+    <div className='px-4 pt-2 pb-2 relative flex justify-center items-center bg-black'>
+      <BsArrowLeftSquareFill onClick={prevSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer left-12 hover:opacity-60'/>
+      <BsArrowRightSquareFill onClick={nextSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer right-12 hover:opacity-60'/>
       {sliderImg.map((item, index) => (
         <div className={index === slide ? 'opacity-100' : 'opacity-0'}>
-          {index === slide && (<img className='w-full rounded-lg' src={item.url} alt="x" />)}
+          {index === slide && (<img className='rounded-lg object-cover h-[400px] w-[1000px] cursor-pointer hover:opacity-60' src={item.url} alt="x" />)}
         </div>
       ))}
+    </div>
     </div>
   )
 }
