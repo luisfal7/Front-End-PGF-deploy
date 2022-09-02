@@ -40,10 +40,11 @@ function SearchBar() {
                         {
                             value && name?.map(e=>{
                                 return(
+                                
                                     <section key={e.id}>
                                         <ul>
                                             <li>
-                                                
+                                                <Link to={`/products/${e._id}`}>
                                                     <article className="hover:bg-blue-300 flex gap-4 p-4">
                                                         <img src={e.image} alt='' className="w-12 h-12 object-contain" />
                                                         <div>
@@ -51,10 +52,11 @@ function SearchBar() {
                                                             <p className='text-xs text-gray-600'>{e.price}</p>
                                                         </div>
                                                     </article>
-                                                
+                                                </Link>
                                             </li>
                                         </ul>    
                                     </section>
+                                
                                 )}    
                             )
                         }
