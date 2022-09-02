@@ -1,4 +1,3 @@
-import FilterBrand from "./FilterBrand";
 import Catalog from "./Catalog";
 import NavBar from "./NavBar";
 

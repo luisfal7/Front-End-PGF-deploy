@@ -58,7 +58,7 @@ function Catalog(){
           Anterior
         </button>
         <button className='m-2' onClick={nextPage}>
-          siguiete
+          Siguiente
         </button>
       </div>
     </div>
