@@ -1,7 +1,13 @@
+import FilterBrand from "./FilterBrand";
+import Catalog from "./Catalog";
+
 function Home() {
-    return ( <div>
-        home
-    </div> );
+    return ( 
+    <div>
+        <FilterBrand/>
+        <Catalog/>
+    </div> 
+    );
 }
 
 export default Home;
