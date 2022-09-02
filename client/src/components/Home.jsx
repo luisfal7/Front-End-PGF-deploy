@@ -1,10 +1,11 @@
 import FilterBrand from "./FilterBrand";
 import Catalog from "./Catalog";
+import NavBar from "./NavBar";
 
 function Home() {
     return ( 
     <div>
-        <FilterBrand/>
+        <NavBar/>
         <Catalog/>
     </div> 
     );
