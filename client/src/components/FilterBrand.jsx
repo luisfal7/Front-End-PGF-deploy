@@ -9,7 +9,7 @@ function FilterBrand() {
     let brands = useSelector((state) => state.brands)
     
     const handleChangeSelect = (e)=>{
-        if(e.target.value === 'marca'){
+        if(e.target.value === 'brand'){
             dispatch(getShoes())
         }else{
             dispatch(getByBrand(e.target.value))
