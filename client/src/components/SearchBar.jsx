@@ -10,9 +10,6 @@ function SearchBar() {
 
     const [value, setValue] = useState('')
 
-    console.log(name)
-    console.log(value)
-
     const handleChange = (e)=>{
         setValue(e.target.value)
         getByName(value)
@@ -36,11 +33,9 @@ function SearchBar() {
                         </div>
                     </form>
                     <div>
-
                         {
-                            value && name?.map(e=>{
+                        (typeof name !== 'string')  ? value && name?.map(e=>{
                                 return(
-                                
                                     <section key={e.id}>
                                         <ul>
                                             <li>
@@ -58,7 +53,7 @@ function SearchBar() {
                                     </section>
                                 
                                 )}    
-                            )
+                            ):<h1>{name}</h1>
                         }
                     </div>
                 </div>
