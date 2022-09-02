@@ -4,13 +4,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useState, useEffect } from 'react';
 import { getShoes } from '../redux/actions';
 
-
-
 function Catalog(){
 
   const dispatch = useDispatch()
 
-  let shoes = useSelector(state => state.shoes);
+  let shoes = useSelector(state => state.filter);
   console.log(shoes);
 
   useEffect(()=>{
