@@ -19,24 +19,24 @@ function FilterBrand() {
     useEffect(() => {
         dispatch(getBrands())
         dispatch(getShoes());
-      }, [dispatch]);
+    }, [dispatch]);
 
     return ( 
-        <div>
-            <select className='' onClick={handleChangeSelect}>
-                <option key={0}>
-                    marca
+        <div className='pl-8'>
+            <select onClick={handleChangeSelect}>
+                <option key={0} value={'brand'}>
+                    Search by Brand
                 </option>
                     {brands.map(e =>{ 
                         return(
                             <option key={e._id} value={e.name}>
                                 {e.name}
-                             </option>
+                            </option>
                         )}
                     )}
             </select>
         </div>
-     );
+    );
 }
 
 export default FilterBrand;

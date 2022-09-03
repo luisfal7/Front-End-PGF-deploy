@@ -26,7 +26,7 @@ const Carousel = () => {
   
   return (
     <div>
-    <h1 className='text-[#00ff01] flex justify-center items-center bg-black py-4 font-bold text-xl'>¡New Arrivals!</h1>
+    <h1 className='text-[#00ff01] flex justify-center items-center bg-black py-4 font-bold text-xl'>New Arrivals!</h1>
     <div className='px-4 pt-2 pb-2 relative flex justify-center items-center bg-black'>
       <BsArrowLeftSquareFill onClick={prevSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer left-12 hover:opacity-60'/>
       <BsArrowRightSquareFill onClick={nextSlide} className='absolute top-[50%] text-4xl text-[#00ff01] cursor-pointer right-12 hover:opacity-60'/>
