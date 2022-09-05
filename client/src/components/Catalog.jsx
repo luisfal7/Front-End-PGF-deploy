@@ -18,22 +18,22 @@ function Catalog(){
   },[shoes])
 
   const prevPage = ()=>{
-    if(currentPage < 9){
+    if(currentPage < 7){
         setCurrentPage(0)
     }else{
-        setCurrentPage(currentPage - 8)
+        setCurrentPage(currentPage - 6)
     }
   }
 
   const nextPage = ()=>{
-    if(shoes.length <= currentPage + 8){
+    if(shoes.length <= currentPage + 6){
         setCurrentPage(currentPage)
     }else{
-        setCurrentPage(currentPage + 8)
+        setCurrentPage(currentPage + 6)
     }
   }
 
-  const shoesPage = shoes.slice(currentPage, currentPage + 8)
+  const shoesPage = shoes.slice(currentPage, currentPage + 6)
 
   useEffect(()=>{
     dispatch(getShoes())
@@ -41,8 +41,8 @@ function Catalog(){
 
   return (
     <div className="bg-black">
-      <div className="text-[#00ff01] text-6xl font-bold text-center pb-2 pt-16">Products</div>
-      <div className='flex justify-around'>
+      <div className="text-[#00ff01] text-3xl font-semibold text-center pb-2 pt-2">Products</div>
+      <div className='m-2 flex justify-around'>
         <button onClick={prevPage}>
           Previous
         </button>
@@ -50,8 +50,8 @@ function Catalog(){
           Next
         </button>
       </div>
-      <div className="container">
-          <div className="mt-0 grid grid-cols-4 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      <div className="container pb-2">
+          <div className="grid grid-cols-6 gap-y-2 gap-x-2 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-2">
             {shoesPage.map(e => 
               <Card 
                 key= {e._id} 
