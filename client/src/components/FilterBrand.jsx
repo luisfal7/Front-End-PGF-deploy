@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getBrands, getByBrand } from "../redux/actions";
+import { getBrands, getByBrand, getShoes } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function FilterBrand() {
@@ -8,12 +8,21 @@ function FilterBrand() {
   let brands = useSelector((state) => state.brands);
 
   const [product, setProduct] = useState(false);
+  console.log(product)
 
   const handleChangeSelect = (e) => {
-      dispatch(getByBrand(e.target.value));
+      
+       dispatch(getByBrand(e.target.value));
+      
+  };
+  const handleChange = (e) => {
+      
+      dispatch(getShoes())
+      
   };
 
   useEffect(() => {
+    dispatch(getShoes())
     dispatch(getBrands());
   }, [dispatch]);
 
@@ -22,7 +31,7 @@ function FilterBrand() {
       <div onClick={() => setProduct(!product)}>
         {product ? (
           <div className="flex items-center">
-            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]">Brands</p>
+            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Brands</p>
             
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +51,7 @@ function FilterBrand() {
           </div>
         ) : (
           <div className="flex items-center">
-            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]">Brands</p>
+            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Brands</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-chevron-down cursor-pointer hover:text-[#00ff01] m-1"
