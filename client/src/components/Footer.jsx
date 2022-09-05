@@ -8,7 +8,6 @@ const Footer = () => {
                 <div>
                         <h6 className='font-bold text-center text-[#00ff01] uppercase pt-2'>More links</h6>
                             <ul>
-                                <li className='py-2 text-center'>Sneaker Paradise Vip Club</li>
                                 <li className='py-2 text-center'>About Us</li>
                                 <li className='py-2 text-center'>Contact Us</li>
                                 <li className='py-2 text-center'>Size Chart</li>

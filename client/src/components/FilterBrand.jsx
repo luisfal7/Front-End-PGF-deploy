@@ -31,7 +31,7 @@ function FilterBrand() {
       <div onClick={() => setProduct(!product)}>
         {product ? (
           <div className="flex items-center">
-            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Brands</p>
+            <p className="text-black text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Filter By Brand</p>
             
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ function FilterBrand() {
           </div>
         ) : (
           <div className="flex items-center">
-            <p className="text-gray-700 text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Brands</p>
+            <p className="text-black text-lg cursor-pointer hover:text-[#00ff01]" onClick={handleChange}>Filter By Brand</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-chevron-down cursor-pointer hover:text-[#00ff01] m-1"
@@ -77,7 +77,7 @@ function FilterBrand() {
                 {brands.map((e) => {
                   return (
                     <div>
-                        <button className="bg-white border-none ml-2" value={e.name} onClick={handleChangeSelect}>{e.name}</button>
+                        <button className="bg-white border-none ml-2 uppercase" value={e.name} onClick={handleChangeSelect}>{e.name}</button>
                     </div>
                   );
                 })}

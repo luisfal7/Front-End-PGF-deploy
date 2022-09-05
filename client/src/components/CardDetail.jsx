@@ -15,13 +15,13 @@ const CardDetail = () => {
     <>
     {
     shoe?.map((el) => { return (
-    <div className="text-white bg-black">
+    <div className="text-white bg-black h-screen">
       <div className="px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img className="lg:w-1/3 w-auto h-auto rounded-lg" src={el.image} alt={el.name}/>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h1 className="text-[#00ff01] text-3xl font-md mb-1">{el.name}</h1>
-              <h2 className="text-sm">{el.brand}</h2>
+              <h1 className="text-[#00ff01] text-3xl font-md mb-1 capitalize">{el.name}</h1>
+              <h2 className="text-sm uppercase">{el.brand}</h2>
                 <div className="flex mb-4">
         </div>
         <p>{el.description}</p>
