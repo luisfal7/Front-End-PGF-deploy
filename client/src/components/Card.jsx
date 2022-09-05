@@ -3,25 +3,24 @@ import { Link } from 'react-router-dom'
 
 const Card = ({shoe}) => {
   return (
-    <div className="bg-black">
-      <div className="max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div className="w-52 bg-black">
+      <div className="max-w-2xl py-2 px-2 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-2">
         <div className="">
           <Link to={`/products/${shoe._id}`}>
-          <div className="group relative cursor-pointer">
-            <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-xl group-hover:opacity-60">
+          <div className="group relative cursor-pointer ">
+            <div className="overflow-hidde group-hover:opacity-60">
               <img
                 src={shoe.image}
                 alt={shoe.name}
-                className="h-full w-full"
+                className="object-contain h-80 w-52 bg-white px-2"
               />
             </div>
-            <div className="mt-4 flex justify-between">
+            <div className="mt-2 flex justify-between ">
               <div>
-                <h3 className="text-xl text-bold text-[#00ff01]">{shoe.name}</h3>
-                <p className="mt-1 text-md text-white">{shoe.brand}</p>
-                <p className="mt-1 text-md text-white">{shoe.color}</p>
-              </div>
-              <p className="text-3xl font-medium p-4 text-white">${shoe.price}</p>              
+                <p className="mt-1 text-sm text-white">{shoe.brand}</p>
+                <h3 className="text-sm text-bold text-[#00ff01]">{shoe.name}</h3>
+                <p className="mt-1 text-md text-white">${shoe.price}</p>
+              </div>             
             </div>
           </div>
           </Link>
