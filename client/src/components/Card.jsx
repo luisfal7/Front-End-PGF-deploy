@@ -12,10 +12,10 @@ const Card = ({shoe}) => {
               <img
                 src={shoe.image}
                 alt={shoe.name}
-                className="object-contain h-80 w-52 bg-white px-2"
+                className="object-contain h-40 w-52 bg-black px-2"
               />
             </div>
-            <div className="mt-2 flex justify-between ">
+            <div className="mt-2 flex justify-between">
               <div>
                 <p className="mt-1 text-sm text-white">{shoe.brand}</p>
                 <h3 className="text-sm text-bold text-[#00ff01]">{shoe.name}</h3>
