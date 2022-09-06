@@ -3,6 +3,7 @@ import {MdFavorite} from 'react-icons/md'
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getShoe } from '../redux/actions';
+import NavBar from './NavBar';
 
 const CardDetail = () => {
     const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const CardDetail = () => {
     }, [dispatch, id])
   return (
     <>
+    <NavBar/>
     {
     shoe?.map((el) => { return (
     <div className="text-white bg-black h-screen">
