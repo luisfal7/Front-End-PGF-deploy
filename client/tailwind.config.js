@@ -8,5 +8,8 @@ module.exports = {
       center: true,
     },
     extend: {},
-  }
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

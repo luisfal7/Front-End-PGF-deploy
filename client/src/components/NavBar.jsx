@@ -2,6 +2,7 @@ import FilterBrand from "./FilterBrand";
 import SearchBar from "./SearchBar";
 import { BsFillCartFill, BsPersonFill } from "react-icons/bs";
 import { GiRunningShoe } from 'react-icons/gi'
+import { Link } from "react-router-dom";
 
 function NavBar() {
     return ( 

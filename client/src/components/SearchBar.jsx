@@ -75,7 +75,7 @@ function SearchBar() {
                     <input
                       className="bg-gray-100 focus:outline-none rounded w-full text-sm text-gray-500 pl-10 py-2"
                       type="text"
-                      placeholder="Search"
+                      placeholder="Search..."
                       onChange={handleChange}
                     />
                     <div className="relative flex items-center">
@@ -96,11 +96,11 @@ function SearchBar() {
                                         className="w-12 h-12 object-contain"
                                       />
                                       <div>
-                                        <h3 className="text-sm font-semibold">
+                                        <h3 className="text-sm font-semibold capitalize">
                                           {e.name}
                                         </h3>
                                         <p className="text-xs text-black">
-                                          {e.price}
+                                          ${e.price}
                                         </p>
                                       </div>
                                     </article>
