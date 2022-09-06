@@ -6,7 +6,9 @@ import { GiRunningShoe } from 'react-icons/gi'
 function NavBar() {
     return ( 
         <div className="px-2 flex justify-between content-center items-center w-full h-full bg-white">
+            <a href="/">
             <h1 className="text-3xl font-bold mr-4 sm:text-4xl">Sneaker Paradise</h1>
+            </a>
             <div className="flex justify-between items-center">
                 <ul>
                     <li><FilterBrand/></li>
