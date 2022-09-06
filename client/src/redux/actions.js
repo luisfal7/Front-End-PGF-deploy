@@ -5,6 +5,7 @@ export const GET_SHOE = 'GET_SHOE'
 export const GET_BRANDS = 'GET_BRANDS'
 export const GET_BY_NAME = 'GET_BY_NAME'
 export const GET_BY_BRAND = 'GET_BY_BRAND'
+export const GET_BY_CATALOG_BRAND = 'GET_BY_CATALOG_BRAND'
 
 export const getShoes = () => (dispatch)=>{
     return axios('https://sneakers-backend-henry.herokuapp.com/shoes')
@@ -26,6 +27,10 @@ export const getByName = (name) => (dispatch)=>{
                     .then(res => dispatch({type: 'GET_BY_NAME', payload: res.data})) 
 }
 
+export const getByCatalogBrand = (brand) => (dispatch)=>{
+    return axios(`https://sneakers-backend-henry.herokuapp.com/shoes?brand=${brand}`)
+                    .then(res => dispatch({type: 'GET_BY_CATALOG_BRAND', payload: res.data})) 
+}
 
 export const getByBrand = (brand) =>{
     return {
