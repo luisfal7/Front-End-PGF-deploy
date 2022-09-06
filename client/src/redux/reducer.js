@@ -3,7 +3,8 @@ import {
     GET_SHOE,
     GET_BY_NAME,
     GET_BRANDS,
-    GET_BY_BRAND
+    GET_BY_BRAND,
+    GET_BY_CATALOG_BRAND
 } from './actions'
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
     shoe: [],
     filter:[],
     brands:[],
-    name: []
+    name: [],
+    catalogBrand: []
 }
 
 function reducer(state = initialState, action){
@@ -32,6 +34,11 @@ function reducer(state = initialState, action){
             return{
                 ...state, 
                 brands: action.payload
+            }
+        case GET_BY_CATALOG_BRAND:
+            return{
+                ...state, 
+                catalogBrand: action.payload
             }
         case GET_BY_NAME:
             return{
