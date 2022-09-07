@@ -20,7 +20,7 @@ const CardDetail = () => {
     <div className="text-white bg-black h-screen">
       <div className="px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <img className="lg:w-1/3 w-auto h-auto rounded-lg" src={el.image} alt={el.name}/>
+          <img className="lg:w-[600px] w-auto h-auto rounded-lg" src={el.image} alt={el.name}/>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h1 className="text-[#00ff01] text-3xl font-md mb-1 capitalize">{el.name}</h1>
               <h2 className="text-sm uppercase">{el.brand}</h2>
@@ -34,7 +34,7 @@ const CardDetail = () => {
           <div className="flex ml-6 items-center">
             <span className="mr-3">Size</span>
             <div className="relative">
-              <select className="rounded border focus:outline-none focus:ring-1 focus:ring-[#00ff01] text-black pr-4">
+              <select className="rounded-md w-20 focus:border-[#00ff01] focus:ring-0 text-black pr-4">
               {
               el.stock?.map((el)=>{return(
               <option>{el.size}</option>
@@ -52,7 +52,7 @@ const CardDetail = () => {
           </button>
         </div>
         <Link to="/">
-            <button className="border py-2 px-6">BACK HOME</button>
+            <button className="border mt-5 py-2 px-6">BACK HOME</button>
         </Link>
       </div>
     </div>
