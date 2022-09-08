@@ -48,7 +48,7 @@ function CatalogBrand() {
         <NavBar />
       </div>
       <div className="flex flex-col items-center bg-black">
-        <span className="text-[#00ff01] text-3xl font-semibold text-center py-2 mx-auto capitalize">
+        <span className="text-[#00ff01] text-3xl font-semibold text-center py-2 mx-auto uppercase">
           {catalogBrandPage[0]?.brand}
         </span>
         

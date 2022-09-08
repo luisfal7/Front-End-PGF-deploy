@@ -19,8 +19,8 @@ function FilterBrand() {
 
   return (
     <div className="cursor-pointer group">
-      <p className="text-gray-700 text-lg hover:text-[#00ff01]">
-        Brands
+      <p className="text-white text-lg hover:text-[#00ff01] mr-4 px-8 py-3">
+        BRANDS
       </p>
       <div>   
         <div className="absolute t-20 z-40 hidden group-hover:block hover:block">
@@ -34,7 +34,7 @@ function FilterBrand() {
                 <div>
                   <Link to={`/colletions/${e.name}`}>
                     <button
-                      className="bg-white border-none ml-2"
+                      className="bg-white border-none ml-2 uppercase"
                       value={e.name}
                       onClick={handleChangeSelect}
                     > 

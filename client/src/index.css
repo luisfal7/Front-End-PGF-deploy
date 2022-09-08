@@ -7,4 +7,7 @@
       @apply text-black border bg-[#00ff01] border-[#00ff01]
       hover:bg-transparent hover:text-[#00ff01] rounded-md px-2
   }
+  body {
+    @apply min-h-screen bg-black
+  }
 }
