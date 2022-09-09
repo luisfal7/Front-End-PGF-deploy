@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Card from './Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getShoes } from '../redux/actions';
+import { getShoes } from '../redux/actions/actions';
 
 function Catalog(){
   const dispatch = useDispatch()
