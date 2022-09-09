@@ -8,6 +8,7 @@ import Account from './components/Account'
 import Signin from './components/Signin'
 import CatalogBrand from './components/CatalogBrand';
 import {AuthContextProvider} from './context/AuthContext'
+import Protected from './components/Protected';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
         <Route exact path="/products/:id" element={<CardDetail/>} />
         <Route exact path="/signin" element={<Signin/>} />
         <Route exact path="/createaccount" element={<CreateAccount/>} />
-        <Route exact path='/account' element={<Account/>} />
+        <Route exact path='/account' element={<Protected><Account/></Protected>} />
         <Route exact path="/colletions/:brand" element={<CatalogBrand/>} />
       </Routes>
       </AuthContextProvider>

@@ -3,22 +3,35 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 
 const Signin = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  })
+  const [errors, setErrors] = useState({})
   const navigate = useNavigate()
   const {signIn} = UserAuth()
 
+  const validateForm = (form) => {
+    let errors = {
+      hasErrors: false
+    }
+    if (!/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(form.email)) {
+      errors.email = "Use a valid email";
+      errors.hasErrors = true;
+  }
+  return errors
+  }
+
+  const handleChanges = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+    setErrors(validateForm({ ...user, [e.target.name]: e.target.value }));
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
-    try {
-      await signIn(email, password)
-      navigate('/account')
-    } catch (e) {
-      setError(e.message)
-      console.log(e.message)
-    }
+    setErrors({ ...errors, hasErrors: true })
+    await signIn(user.email, user.password)
+    navigate('/account')
   }
 
   return (
@@ -31,11 +44,12 @@ const Signin = () => {
         <form onSubmit={handleSubmit}>
           <div className='flex flex-col py-2'>
             <label className='py-2 font-medium'>Email Address:</label>
-            <input onChange={(e) => setEmail(e.target.value)} className='p-3 rounded-md text-black' type="email" />
+            <input name='email' onChange={handleChanges} className='p-3 rounded-md text-black' type="email" />
+            {errors.email && (<p className='text-red-500'>{errors.email}</p>)}
           </div>
           <div className='flex flex-col py-2'>
             <label className='py-2 font-medium'>Password:</label>
-            <input onChange={(e) => setPassword(e.target.value)} className='p-3 rounded-md text-black' type="password" />
+            <input name='password' onChange={handleChanges} className='p-3 rounded-md text-black' type="password" />
           </div>
           <button className='w-full py-4 my-2'>Sign In</button>
           <Link to='/'><button className='w-full py-4 my-2'>Back Home</button></Link>
