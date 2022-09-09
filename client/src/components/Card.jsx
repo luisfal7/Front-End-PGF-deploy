@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {addProductCarrito} from '../redux/actions/actions'
@@ -33,7 +33,7 @@ const Card = ({shoe}) => {
             </div>
           </div>
           </Link>
-          <button className="mt-1 text-md text-white" onClick={cart}>add cart</button>
+          <button className="mt-1 text-md" onClick={cart}>BUY ME!</button>
         </div>
       </div>
     </div> 
