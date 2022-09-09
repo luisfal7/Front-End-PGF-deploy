@@ -1,7 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import {addProductCarrito} from '../redux/actions/actions'
+
 
 const Card = ({shoe}) => {
+  const dispatch = useDispatch()
+
+  const cart = ()=>{
+    dispatch(addProductCarrito(shoe))
+  }
+
   return (
     <div className="w-52 bg-black">
       <div className="max-w-2xl py-2 px-2 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-2">
@@ -24,6 +33,7 @@ const Card = ({shoe}) => {
             </div>
           </div>
           </Link>
+          <button className="mt-1 text-md text-white" onClick={cart}>add cart</button>
         </div>
       </div>
     </div> 
