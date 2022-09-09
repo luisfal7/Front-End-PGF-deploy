@@ -12,6 +12,8 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import SizeChart from './components/SizeChart';
 import TermsOfService from './components/TermsOfService';
+import AuthContextProvider from './context/AuthContext';
+import Protected from './components/Protected'
 
 export function App() {
   
@@ -38,3 +40,5 @@ export function App() {
     
   );
 }
+
+export default App

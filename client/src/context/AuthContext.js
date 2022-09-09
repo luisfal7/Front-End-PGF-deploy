@@ -45,4 +45,4 @@ export const UserAuth = () => {
   return useContext(UserContext)
 }
 
-export default AuthContextProvider;
+export default AuthContextProvider
