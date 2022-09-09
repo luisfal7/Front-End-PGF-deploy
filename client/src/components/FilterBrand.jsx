@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getBrands, getByBrand, getByCatalogBrand } from "../redux/actions";
+import { getBrands, getByBrand, getByCatalogBrand } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function FilterBrand() {
