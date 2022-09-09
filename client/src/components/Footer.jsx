@@ -20,7 +20,7 @@ const Footer = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
         Object.values(email)[0].includes("@")
-          ? axios.post(`https://sneakers-api-pg.herokuapp.com/`, email) &&
+          ? axios.post(`https://sneakers-api-pg.herokuapp.com/mail/newsletter`, email) &&
             alert("Thanks for subscribing!")
           : alert("Please enter a valid email address");
       };
