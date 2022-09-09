@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const sizeChart = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-black">
-        <div className="flex flex-col items-center justify-center  h-6/8 w-1/2 bg-[#00ff01] rounded-lg">
+        <div className="flex flex-col items-center justify-center h-6/8 w-1/2 bg-[#00ff01] rounded-lg">
             <h1 className="text-4xl italic font-semibold">Size Chart</h1>
             <div>
             <table className="table-auto mb-6 border-black">
@@ -90,6 +91,9 @@ const sizeChart = () => {
                 </tr>
                 </tbody>
             </table>
+            </div>
+            <div className="flex justify-center">
+            <Link to= '/'><button className="text-2xl bg-black text-[#00ff01] hover:text-black font-semibold rounded-lg border-2 mt-4 border-black">Home</button></Link>
             </div>
         </div>
         </div>

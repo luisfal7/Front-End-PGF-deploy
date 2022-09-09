@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getShoe } from '../redux/actions';
 import NavBar from './NavBar';
+import RatingComponent from './RatingComponent';
 
 const CardDetail = () => {
     const dispatch = useDispatch()
@@ -54,6 +55,9 @@ const CardDetail = () => {
         <Link to="/">
             <button className="border mt-5 py-2 px-6">BACK HOME</button>
         </Link>
+      </div>
+      <RatingComponent/>
+      <div>
       </div>
     </div>
   </div>

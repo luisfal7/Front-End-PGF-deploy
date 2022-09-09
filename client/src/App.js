@@ -10,6 +10,7 @@ import CatalogBrand from './components/CatalogBrand';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import SizeChart from './components/SizeChart';
+import TermsOfService from './components/TermsOfService';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
         <Route exact path= "/aboutUs" element={<AboutUs/>} />
         <Route exact path= "/contactUs" element={<ContactUs/>} />
         <Route exact path= "/sizeChart" element={<SizeChart/>} />
+        <Route exact path= "/termsOfService" element={<TermsOfService/>} />
       </Routes>
     </div>
     
