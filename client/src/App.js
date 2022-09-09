@@ -7,6 +7,7 @@ import CreateAccount from './components/CreateAccount';
 import Account from './components/Account'
 import Signin from './components/Signin'
 import CatalogBrand from './components/CatalogBrand';
+import Cart from './components/Cart';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import SizeChart from './components/SizeChart';
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/createaccount" element={<CreateAccount/>} />
         <Route exact path='/account' element={<Protected><Account/></Protected>} />
         <Route exact path="/colletions/:brand" element={<CatalogBrand/>} />
+        <Route exact path="/cart" element={<Cart/>} />
         <Route exact path= "/aboutUs" element={<AboutUs/>} />
         <Route exact path= "/contactUs" element={<ContactUs/>} />
         <Route exact path= "/sizeChart" element={<SizeChart/>} />
