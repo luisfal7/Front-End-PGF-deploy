@@ -8,6 +8,8 @@ export const GET_BY_BRAND = 'GET_BY_BRAND'
 export const GET_BY_CATALOG_BRAND = 'GET_BY_CATALOG_BRAND'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const ADD_ONE_FROM_CART = 'ADD_ONE_FROM_CART'
+export const GET_MORE_PRICE = 'GET_MORE_PRICE'
+export const GET_LESS_PRICE = 'GET_LESS_PRICE'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export const ADD_PRODUCT_CARRITO = 'ADD_PRODUCT_CARRITO';
 export const DELETE_PRODUCT_CARRITO = 'DELETE_PRODUCT_CARRITO';
@@ -49,6 +51,17 @@ export const getByBrand = (brand) =>{
         type: 'GET_BY_BRAND',
         payload: brand
     } 
+}
+
+export const getMorePrice = () => {
+    return {
+            type: 'GET_MORE_PRICE'
+    }   
+}
+export const getLessPrice = () => {
+    return {
+            type: 'GET_LESS_PRICE'
+    }   
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

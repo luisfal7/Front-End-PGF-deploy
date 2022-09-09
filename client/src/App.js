@@ -13,7 +13,7 @@ import ContactUs from './components/ContactUs';
 import SizeChart from './components/SizeChart';
 import TermsOfService from './components/TermsOfService';
 
-function App() {
+export function App() {
   
   return (
 
@@ -38,5 +38,3 @@ function App() {
     
   );
 }
-
-export default App

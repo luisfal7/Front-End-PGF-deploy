@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getByCatalogBrand } from "../redux/actions/actions";
+import { getByCatalogBrand, getLessPrice, getMorePrice } from "../redux/actions/actions";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
 import NavBar from "./NavBar";
@@ -51,7 +51,11 @@ function CatalogBrand() {
         <span className="text-[#00ff01] text-3xl font-semibold text-center py-2 mx-auto uppercase">
           {catalogBrandPage[0]?.brand}
         </span>
-        
+        <div className="flex flex-row items-center justify-center border">
+          <button className='mx-2' type="submit" onClick={() => dispatch(getMorePrice())}> Price $$$ </button>
+          <button className='mx-2' type="submit" onClick={() => dispatch(getLessPrice())}> Price $ </button>
+          <button className='mx-2' type="submit" > reset filter </button>
+        </div>
         <div className="">
           <div className="grid grid-cols-4 gap-y-2 gap-x-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-2">
             {catalogBrandPage?.map((e) => (
