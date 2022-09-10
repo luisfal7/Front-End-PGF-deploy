@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { getByCatalogBrand, getByColor, getLessPrice, getMorePrice, resetFilterBrand } from "../redux/actions/actions";
+import { getByCatalogBrand, getByColor, getLessPrice, getMorePrice } from "../redux/actions/actions";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
 import NavBar from "./NavBar";
