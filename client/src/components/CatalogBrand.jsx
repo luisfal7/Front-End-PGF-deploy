@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getByCatalogBrand, getLessPrice, getMorePrice } from "../redux/actions/actions";
+import Select from "react-select";
+import { getByCatalogBrand, getByColor, getLessPrice, getMorePrice, resetFilterBrand } from "../redux/actions/actions";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
 import NavBar from "./NavBar";
@@ -13,6 +14,15 @@ function CatalogBrand() {
   let catalogBrand = useSelector((state) => state.catalogBrand);
 
   const [currentPage, setCurrentPage] = useState(0);
+
+  console.log(catalogBrand)
+
+  const find = (e)=>{
+    dispatch(getByColor(e.label)) 
+  }
+
+const options = catalogBrand.map(e => ({value:e._id, label:e.color}))
+;
 
   useEffect(() => {
     if (catalogBrand.length) {
@@ -51,10 +61,13 @@ function CatalogBrand() {
         <span className="text-[#00ff01] text-3xl font-semibold text-center py-2 mx-auto uppercase">
           {catalogBrandPage[0]?.brand}
         </span>
-        <div className="flex flex-row items-center justify-center border">
-          <button className='mx-2' type="submit" onClick={() => dispatch(getMorePrice())}> Price $$$ </button>
-          <button className='mx-2' type="submit" onClick={() => dispatch(getLessPrice())}> Price $ </button>
-          <button className='mx-2' type="submit" > reset filter </button>
+        <div className="flex flex-row items-center justify-center">
+          <div className="">
+            <Select options={options} placeholder="Select Option"  onChange={find}/>
+          </div>
+          <button className='mx-2'  onClick={() => dispatch(getMorePrice())}> Price $$$ </button>
+          <button className='mx-2'  onClick={() => dispatch(getLessPrice())}> Price $ </button>
+          <button className='mx-2'  onClick={() => dispatch(getByCatalogBrand(brand))}> All models </button>
         </div>
         <div className="">
           <div className="grid grid-cols-4 gap-y-2 gap-x-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-2">
