@@ -7,6 +7,7 @@ import {
     GET_BY_CATALOG_BRAND,
     GET_LESS_PRICE,
     GET_MORE_PRICE,
+    GET_BY_COLOR,
     ////////////////////////////
     ADD_PRODUCT_CARRITO, 
     DELETE_PRODUCT_CARRITO, 
@@ -38,22 +39,16 @@ export function reducerApp(state = initialState, action){
           ...state,
           shoes: action.payload.map((e) => ({
             ...e,
-            quantity: 0,
-            price: parseInt(e.price),
+            quantity: 0
           })),
-          filter: action.payload.map((e) => ({
-            ...e,
-            quantity: 0,
-            price: parseInt(e.price),
-          })),
+          filter: action.payload.map((e) => ({...e, stock:e.stock.map( el => ({...el, quantity:0}))})),
         };
       case GET_SHOE:
         return {
           ...state,
           shoe: {
             ...action.payload[0],
-            quantity: 0,
-            price: parseInt(action.payload[0].price),
+            stock:action.payload[0].stock.map( el => ({...el, quantity:0}))
           },
         };
       case GET_BRANDS:
@@ -64,7 +59,7 @@ export function reducerApp(state = initialState, action){
       case GET_BY_CATALOG_BRAND:
         return {
           ...state,
-          catalogBrand: action.payload,
+          catalogBrand: action.payload.map((e) => ({...e, stock:e.stock.map( el => ({...el, quantity:0}))})),
         };
       case GET_BY_NAME:
         return {
@@ -100,6 +95,13 @@ export function reducerApp(state = initialState, action){
               );
             }),
         };
+
+        case GET_BY_COLOR:
+            return{
+                ...state, 
+                catalogBrand: [...state.catalogBrand].filter(e => e.color === action.payload)
+            }
+
       //////////////////////////////////////////////////////////////////////////////////////////
       case ADD_PRODUCT_CARRITO:
         return {

@@ -10,6 +10,7 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const ADD_ONE_FROM_CART = 'ADD_ONE_FROM_CART'
 export const GET_MORE_PRICE = 'GET_MORE_PRICE'
 export const GET_LESS_PRICE = 'GET_LESS_PRICE'
+export const GET_BY_COLOR = 'GET_BY_COLOR'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export const ADD_PRODUCT_CARRITO = 'ADD_PRODUCT_CARRITO';
 export const DELETE_PRODUCT_CARRITO = 'DELETE_PRODUCT_CARRITO';
@@ -22,27 +23,27 @@ export const CLEAN_CART = 'CLEAN_CART';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const getShoes = () => (dispatch)=>{
-    return axios('https://sneakers-backend-henry.herokuapp.com/shoes')
+    return axios('https://sneakers-api-pg.herokuapp.com/shoes')
                     .then(res => dispatch({type: 'GET_SHOES', payload: res.data}))
 }
 
 export const getShoe = (id) => (dispatch)=>{
-    return axios(`https://sneakers-backend-henry.herokuapp.com/shoes/${id}`)
+    return axios(`https://sneakers-api-pg.herokuapp.com/shoes/${id}`)
                     .then(res => dispatch({type: 'GET_SHOE', payload: res.data}))
 }
 
 export const getBrands = () => (dispatch)=>{
-    return axios(`https://sneakers-backend-henry.herokuapp.com/brands`)
+    return axios(`https://sneakers-api-pg.herokuapp.com/brands`)
                     .then(res => dispatch({type: 'GET_BRANDS', payload: res.data})) 
 }
 
 export const getByName = (name) => (dispatch)=>{
-    return axios(`https://sneakers-backend-henry.herokuapp.com/shoes?name=${name}`)
+    return axios(`https://sneakers-api-pg.herokuapp.com/shoes?name=${name}`)
                     .then(res => dispatch({type: 'GET_BY_NAME', payload: res.data})) 
 }
 
 export const getByCatalogBrand = (brand) => (dispatch)=>{
-    return axios(`https://sneakers-backend-henry.herokuapp.com/shoes?brand=${brand}`)
+    return axios(`https://sneakers-api-pg.herokuapp.com/shoes?brand=${brand}`)
                     .then(res => dispatch({type: 'GET_BY_CATALOG_BRAND', payload: res.data})) 
 }
 
@@ -61,6 +62,13 @@ export const getMorePrice = () => {
 export const getLessPrice = () => {
     return {
             type: 'GET_LESS_PRICE'
+    }   
+}
+
+export const getByColor = (value) => {
+    return {
+        type: 'GET_BY_COLOR',
+        payload: value
     }   
 }
 
