@@ -79,9 +79,9 @@ export const addProductCarrito = (data) => {
     return { type: ADD_PRODUCT_CARRITO, payload: data }
 }
 
-export const deleteProductCarrito = (id) => {
+export const deleteProductCarrito = (_id) => {
     let carritoProducts = getProductsCarrito();
-    carritoProducts = carritoProducts.filter(e => e.id !== id);
+    carritoProducts = carritoProducts.filter(e => e._id !== _id);
     localStorageCarrito(carritoProducts, false);
     return { type: DELETE_PRODUCT_CARRITO, payload: null }
 }
@@ -98,12 +98,12 @@ export const resetTotal = () => {
     return { type: RESET_TOTAL, payload: 0 }
 }
 
-export const incrementeQuantity = (id) => {
-    return { type: INCREMENT_QUANTITY, payload: id }
+export const incrementeQuantity = (_id) => {
+    return { type: INCREMENT_QUANTITY, payload: _id }
 }
 
-export const decrementeQuantity = (id) => {
-    return { type: DECREMENT_QUANTITY, payload: id }
+export const decrementeQuantity = (_id) => {
+    return { type: DECREMENT_QUANTITY, payload: _id }
 }
 
 export const limpiarCarrito = () => {

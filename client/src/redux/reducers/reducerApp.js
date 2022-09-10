@@ -104,17 +104,21 @@ export function reducerApp(state = initialState, action){
 
       //////////////////////////////////////////////////////////////////////////////////////////
       case ADD_PRODUCT_CARRITO:
-        return {
-          ...state,
-          productosCarrito: state.productosCarrito.concat(action.payload),
-        };
+
+          return{
+            ...state,
+            productosCarrito: state.productosCarrito.concat(action.payload)
+          }
+
       case DELETE_PRODUCT_CARRITO:
+        console.log(state.productosCarrito)
         return {
           ...state,
           productosCarrito: (state.productosCarrito = JSON.parse(
             localStorage.getItem("carrito")
           )),
         };
+     
       case CLEAN_CART:
         return {
           ...state,
@@ -124,6 +128,7 @@ export function reducerApp(state = initialState, action){
         return {
           ...state,
           totalCarrito: state.totalCarrito + action.payload,
+          
         };
       case DECREMENT_TOTAL:
         return {
