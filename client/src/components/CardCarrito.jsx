@@ -19,12 +19,10 @@ export default function CardCarrito({ shoe }) {
   }, []);
 
   const incrementar = () => {
-    if (cantComprar === shoe.stock) setCantComprar(shoe.stock);
-    else {
-      setCantComprar(cantComprar + 1);
-      dispatch(incrementTotal(shoe.price));
-      dispatch(incrementeQuantity(shoe._id));
-    }
+    setCantComprar(cantComprar + 1);
+    dispatch(incrementTotal(shoe.price));
+    dispatch(incrementeQuantity(shoe._id));
+    
   };
 
   const decrementar = () => {
@@ -33,13 +31,16 @@ export default function CardCarrito({ shoe }) {
       setCantComprar(cantComprar - 1);
       dispatch(decrementTotal(shoe.price));
       dispatch(decrementeQuantity(shoe._id));
+     
     }
   };
 
-  function handleDelete(e) {
-    dispatch(decrementTotal(shoe.price * cantComprar));
-    dispatch(deleteProductCarrito(e));
+  function handleDelete() {
+    //dispatch(decrementTotal(shoe.price * cantComprar));
+    dispatch(deleteProductCarrito(shoe._id));
   }
+
+  
 
   return (
     <div>
@@ -51,12 +52,18 @@ export default function CardCarrito({ shoe }) {
             src={shoe.image}
           />
           <div className="flex flex-col ml-3">
-            <p className="md:text-md font-medium">{shoe.name}</p>
+            <p className="md:text-md font-medium text-white">{shoe.name}</p>
             <p className="text-xs font-light text-gray-400">${shoe.price}</p>
           </div>
         </div>
         <div className="flex justify-center items-center">
           <div className="px-4 flex">
+          <button
+              className="focus:outline-none bg-gray-100 h-8 w-16 rounded text-sm px-2 mx-2"
+              disabled
+            >
+              size: {shoe.size}
+            </button>
             <button className="font-semibold h-8 w-8" onClick={decrementar}>
               -
             </button>
@@ -73,11 +80,11 @@ export default function CardCarrito({ shoe }) {
           </div>
           <div className="flex justify-center items-center">
             <div className="pr-8 ">
-              <p className="text-xs font-semibold">${cantComprar * shoe.price}</p>
+              <p className="text-xs font-semibold text-white">${cantComprar * shoe.price}</p>
             </div>
           </div>
           <div>
-            <button className="h-8 w-8" onClick={() => handleDelete(shoe._id)}><AiFillDelete/></button>
+            <button className="h-8 w-8" onClick={handleDelete}><AiFillDelete/></button>
           </div>
         </div>
       </div>
