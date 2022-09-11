@@ -15,7 +15,7 @@ import TermsOfService from './components/TermsOfService';
 import AuthContextProvider from './context/AuthContext';
 import Protected from './components/Protected'
 
-function App() {
+export function App() {
   
   return (
 

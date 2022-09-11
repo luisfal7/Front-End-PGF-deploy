@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React,{useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { resetTotal } from "../redux/actions/actions";
+import { limpiarCarrito, resetTotal } from "../redux/actions/actions";
 import CardCarrito from "./CardCarrito";
 import NavBar from "./NavBar";
 import Checkout from "./Checkout";
@@ -12,41 +12,40 @@ export default function Cart() {
   const subTotal = useSelector((state=> state.totalCarrito));
 
   useEffect(() => {
-    return () => {
-      dispatch(resetTotal());
-    };
-  }, []);
+    
+    return () => dispatch(resetTotal());  
+  },[]);
 
   return (
     <div>
       <NavBar />
       <div>
         <div className="py-12">
-          <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg  md:max-w-5xl">
+          <div className="max-w-md mx-auto bg-[#0E1011] shadow-lg rounded-lg  md:max-w-5xl">
             <div className="md:flex ">
               <div className="w-full p-4 px-5 py-5">
                 <div className="md:grid md:grid-cols-3 gap-2 ">
                   <div className="col-span-2 p-5">
-                    <h1 className="text-xl font-medium ">Shopping Cart</h1>
-
-                    
-
+                    <h1 className="text-xl font-medium text-white">Shopping Cart</h1>
                     <div className="flex justify-between items-center mt-6 pt-6">
                       {products?.length === 0 ? (
                         <div>
-                          <h1>No has agregado productos al carrito... </h1>
+                          {dispatch(resetTotal()) && <h1 className="text-white">No has agregado productos al carrito... </h1>}
                         </div>
                       ) : (
                         <div>
                           
-                              {products?.map((e) => (
+                              {products && products?.map((e) => (
                                 <CardCarrito key={e._id} shoe={e} />
                               ))}
                             
+                    <div className="flex items-center justify-end">
+                      <button onClick={()=>dispatch(limpiarCarrito())}>clear all</button>
+                    </div>
                         </div>
                       )}
                     </div>
-                    <div className="flex justify-between items-center mt-6 pt-6 border-t">
+                    <div className="flex justify-between items-center mt-3 pt-6 border-t">
                       <div className="flex items-center">
                         <Link to={`/`}>
                           <span className="text-md  font-medium text-blue-500">
@@ -59,7 +58,7 @@ export default function Cart() {
                         <span className="text-sm font-medium text-gray-400 mr-1">
                           Subtotal:
                         </span>
-                        <span className="text-lg font-bold text-gray-800">
+                        <span className="text-lg font-bold text-white">
                           ${subTotal}
                         </span>
                       </div>

@@ -11,7 +11,7 @@ import { postUser } from '../redux/actions/actions'
 
 const UserContext = createContext()
 
-export const AuthContextProvider = ({children}) => {
+const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState({})
   const dispatch = useDispatch()
   const createUser = async (email, password) => {

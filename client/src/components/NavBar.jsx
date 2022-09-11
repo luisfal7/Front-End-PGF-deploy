@@ -12,7 +12,7 @@ function NavBar() {
                 <FilterBrand/>
                 <SearchBar/>
                 <button className="text-black bg-red-600 border-none px-8 py-3 flex mr-4 text-xl"><GiRunningShoe className="text-3xl"/>Deals!</button>
-                <button className="mr-4 px-8 py-3 text-xl"><BsFillCartFill/></button>
+                <Link to='/cart'><button className="mr-4 px-8 py-4 text-xl"><BsFillCartFill/></button></Link>
                 <Link to='/account'><button className="px-8 py-4 text-xl"><BsPersonFill/></button></Link>
             </div>
         </div>
