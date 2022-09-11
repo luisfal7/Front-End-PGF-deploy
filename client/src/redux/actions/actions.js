@@ -8,6 +8,7 @@ export const GET_BY_BRAND = 'GET_BY_BRAND'
 export const GET_BY_CATALOG_BRAND = 'GET_BY_CATALOG_BRAND'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const ADD_ONE_FROM_CART = 'ADD_ONE_FROM_CART'
+export const POST_USER = 'POST_USER'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export const ADD_PRODUCT_CARRITO = 'ADD_PRODUCT_CARRITO';
 export const DELETE_PRODUCT_CARRITO = 'DELETE_PRODUCT_CARRITO';
@@ -49,6 +50,19 @@ export const getByBrand = (brand) =>{
         type: 'GET_BY_BRAND',
         payload: brand
     } 
+}
+
+export function postUser(value) {
+    return async function (dispatch) {
+        const create = await axios.post(
+            `https://sneakers-api-pg.herokuapp.com/users`,
+            value
+        );
+        return dispatch({
+        type: "POST_USER",
+        payload: create,
+        });
+    };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

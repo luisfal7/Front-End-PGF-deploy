@@ -6,14 +6,22 @@ import {
   onAuthStateChanged
 } from 'firebase/auth'
 import {auth} from '../firebase'
+import { useDispatch } from 'react-redux'
+import { postUser } from '../redux/actions/actions'
 
 const UserContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState({})
-
-  const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
+  const dispatch = useDispatch()
+  const createUser = async (email, password) => {
+    const register = await createUserWithEmailAndPassword(auth, email, password)
+    let userRegister = {
+      email: register.user.email,
+      idUser: register.user.uid 
+    }
+    console.log(userRegister)
+    dispatch(postUser(userRegister))
   }
 
   const signIn = (email, password) => {

@@ -5,6 +5,7 @@ import {
     GET_BRANDS,
     GET_BY_BRAND,
     GET_BY_CATALOG_BRAND,
+    POST_USER,
     ////////////////////////////
     ADD_PRODUCT_CARRITO, 
     DELETE_PRODUCT_CARRITO, 
@@ -62,6 +63,10 @@ export function reducerApp(state = initialState, action){
                 ...state, 
                 filter: [...state.shoes].filter(e => e.brand?.includes(action.payload))
             }
+        case POST_USER:
+            return {
+                ...state,
+            };
     //////////////////////////////////////////////////////////////////////////////////////////
         case ADD_PRODUCT_CARRITO:
             return {

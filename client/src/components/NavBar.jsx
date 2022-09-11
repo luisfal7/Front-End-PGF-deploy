@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
     return ( 
         <div className="px-2 flex justify-between content-center items-center w-full h-full bg-black">
-            <a href="/">
-            <h1 className="text-3xl font-bold mr-4 sm:text-4xl text-white">Sneaker Paradise</h1>
-            </a>
+            <Link to='/'><h1 className="text-3xl font-bold mr-4 sm:text-4xl text-white">Sneaker Paradise</h1></Link>
             <div className="flex pr-4">
                 <FilterBrand/>
                 <SearchBar/>
