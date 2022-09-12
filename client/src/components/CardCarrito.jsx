@@ -36,7 +36,7 @@ export default function CardCarrito({ shoe }) {
   };
 
   function handleDelete() {
-    //dispatch(decrementTotal(shoe.price * cantComprar));
+    dispatch(decrementTotal(shoe.price * cantComprar));
     dispatch(deleteProductCarrito(shoe._id));
   }
 
