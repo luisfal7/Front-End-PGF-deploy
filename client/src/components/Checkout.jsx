@@ -7,7 +7,7 @@ function checkout() {
 
   const stripePromise = loadStripe('pk_test_51Lgvm7FNV3brqOrQwACULzmK8Gh8gtEI1Tu1atrISNC3OfZ78CaUs8SIUTnl9wRvxacqpxPeeiwtYQT8ifSSaS2d00gs1hTmxj')
 
-  
+
   const CheckoutForm = () =>{
 
     const stripe = useStripe();
@@ -60,15 +60,15 @@ function checkout() {
         base:{
           fontSize: '14px',
           iconColor: '#00ff01',
-          backgroundColor: '#2f3436',
+          backgroundColor: '#1F2937',
           "::placeholder":{
             color:"#9CA3AF",
-            backgroundColor: '#2f3436'
+            backgroundColor: '#1F2937'
              
           },
           ":hover":{
             iconColor: '#ffff01',
-            backgroundColor: '##2f3436'
+            backgroundColor: '#1F2937'
           }
         },
         invalid:{
@@ -130,10 +130,12 @@ function checkout() {
               />
               
             </div>
-        
-        <CardElement className='py-3' options={cardElementOption}/>
 
-        <button type="submit" className="h-12 w-full bg-[#00ff01] rounded focus:outline-none text-white hover:bg-blue-600" disabled={!stripe}>
+            <div className='flex justify-center flex-col pt-3'>
+              <CardElement className=' p-2 border bg-gray-800 border-gray-600 hover:border-blue-600' options={cardElementOption}/>
+            </div>
+
+            <button type="submit" className="h-12 w-full mt-3 bg-[#00ff01] rounded focus:outline-none text-white hover:bg-blue-600" disabled={!stripe}>
               Check Out
             </button>
       </form>
