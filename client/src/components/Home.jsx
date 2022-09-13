@@ -7,6 +7,7 @@ function Home() {
     return ( 
     <div>
         <NavBar/>
+        <h1>vercel</h1>
         <Carousel/>
         <Catalog/>
         <Footer />
