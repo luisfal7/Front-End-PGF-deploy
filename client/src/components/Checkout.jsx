@@ -1,21 +1,32 @@
+import React, { useEffect } from "react";
+//import { useSelector } from "react-redux";
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import axios from 'axios';
 import Swal from "sweetalert2";
 import Address from './Address';
+import { useState } from "react";
 
-function checkout() {
+function checkout({products, subTotal}) {
 
   const stripePromise = loadStripe('pk_test_51Lgvm7FNV3brqOrQwACULzmK8Gh8gtEI1Tu1atrISNC3OfZ78CaUs8SIUTnl9wRvxacqpxPeeiwtYQT8ifSSaS2d00gs1hTmxj')
 
-
   const CheckoutForm = () =>{
+
+    const [isProcessing, setProcessingTo] = useState(false)
+    const [isDisable, setIsDisableTo] = useState(false)
 
     const stripe = useStripe();
     const elements = useElements();
 
+    useEffect(()=>{
+      subTotal === 0 || subTotal < 0 ? setIsDisableTo(true): setIsDisableTo(false)
+      products.length === 0 ? setIsDisableTo(true): setIsDisableTo(false)
+    },[products, subTotal])
+
     const handleSubmit = async (e) =>{
       e.preventDefault()
-    
+
       const {error, paymentMethod} = await stripe.createPaymentMethod({
         type:'card',
         card: elements.getElement(CardElement),
@@ -33,18 +44,49 @@ function checkout() {
         }
       })
 
-      if(!error){
+      setProcessingTo(true)
+
+      if(!error && products !== [] && subTotal !== 0 && subTotal > 0){
         console.log(paymentMethod)
-        Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'your payment has been successful',
-          showConfirmButton: false,
-          timer: 5000
+        const { id } = paymentMethod
+        try{
+          /* const { data } = await axios.post(
+            "http://localhost:3001/api/checkout",
+            {
+              id,
+              shoes: products,
+              amount: subTotal * 100
+            }
+          ) */
+            Swal.fire({
+              position: 'top-center',
+              icon: 'success',
+              title: 'your payment has been successful',
+              showConfirmButton: false,
+              timer: 5000
+            })
+            setProcessingTo(false)
+            setIsDisableTo(false)
+            //console.log(data)
+            console.log(paymentMethod)
+            elements.getElement(CardElement).clear()
+        }catch(error){
+          console.log(error)
+          setProcessingTo(false)
+          setIsDisableTo(false)
+          Swal.fire({
+            position: 'top-center',
+            icon: 'error',
+            title: 'error in your payment',
+            showConfirmButton: false,
+            timer: 3000
         })
+        }
       }else{
         console.log(error)
         e.preventDefault()
+        setProcessingTo(false)
+        setIsDisableTo(false)
         Swal.fire({
           position: 'top-center',
           icon: 'error',
@@ -72,9 +114,9 @@ function checkout() {
           }
         },
         invalid:{
-          
         }
-      }
+      },
+      hidePostalCode: true
     }
 
     return (
@@ -135,14 +177,13 @@ function checkout() {
               <CardElement className=' p-2 border bg-gray-800 border-gray-600 hover:border-blue-600' options={cardElementOption}/>
             </div>
 
-            <button type="submit" className="h-12 w-full mt-3 bg-[#00ff01] rounded focus:outline-none text-white hover:bg-blue-600" disabled={!stripe}>
-              Check Out
+            <button type="submit" className="h-12 w-full mt-3 bg-[#00ff01] rounded focus:outline-none text-white hover:bg-blue-600 disabled:opacity-50 disabled:bg-gray-100" disabled={isDisable}>
+             {isProcessing ? 'Proccesading...' : `PAY $${subTotal}`}
             </button>
       </form>
     )
   }
   
-
   return (
     <div>
       <Elements stripe={stripePromise}>
