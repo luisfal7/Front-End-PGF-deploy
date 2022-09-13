@@ -7,7 +7,7 @@ function Home() {
     return ( 
     <div>
         <NavBar/>
-        <h1>vercel</h1>
+        <h1 className="flex items-center">vercel 2</h1>
         <Carousel/>
         <Catalog/>
         <Footer />
